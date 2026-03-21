@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H65ZJ62NBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H65ZJ62NBY');
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -123,7 +130,7 @@
       <a href="#about">About</a>
       <a href="#coming">Coming Soon</a>
     </div>
-    <button class="nav-cta" onclick="document.getElementById('coming').scrollIntoView({behavior:'smooth'})">Notify me</button>
+    <button class="nav-cta" onclick="document.getElementById('coming').scrollIntoView({behavior:'smooth'});gtag('event','click',{event_category:'nav',event_label:'notify_me'});">Notify me</button>
     <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -136,8 +143,8 @@
       <img src="logo.png" alt="Hoody's Sourdough Kitchen" class="hero-logo" />
       <p>Free tools, expert guides, and a full bake management app to help you craft better sourdough — from your first loaf to your tenth batch.</p>
       <div class="hero-btns">
-        <a href="#freebies" class="btn-light">Get the free guides</a>
-        <a href="#calculator" class="btn-ghost">Try the calculator</a>
+        <a href="#freebies" class="btn-light" onclick="gtag('event','click',{event_category:'hero',event_label:'get_free_guides'});">Get the free guides</a>
+        <a href="#calculator" class="btn-ghost" onclick="gtag('event','click',{event_category:'hero',event_label:'try_calculator'});">Try the calculator</a>
       </div>
     </div>
   </section>
@@ -151,8 +158,8 @@
         <div class="heading">Hydration Calculator</div>
         <p class="calc-desc">Not sure what hydration to aim for? Our free calculator does the hard work. No sign-up needed — just bake.</p>
         <div class="calc-btns">
-          <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="btn-light">Open calculator</a>
-          <button onclick="installApp()" id="installBtn" class="btn-ghost" style="display:none;">Add to home screen</button>
+          <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="btn-light" onclick="gtag('event','click',{event_category:'calculator',event_label:'open_calculator'});">Open calculator</a>
+          <button onclick="installApp();gtag('event','click',{event_category:'calculator',event_label:'add_to_home_screen'});" id="installBtn" class="btn-ghost" style="display:none;">Add to home screen</button>
         </div>
       </div>
       <div class="calc-preview">
@@ -178,8 +185,8 @@
           <div class="calc-preview-bar-w"><div class="calc-preview-bar" style="width:75%;"></div></div>
         </div>
         <div class="calc-preview-btns">
-          <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-preview-cta">Open in browser →</a>
-          <button onclick="installApp()" id="installBtn2" class="calc-preview-cta" style="display:none;">Add to home screen</button>
+          <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-preview-cta" onclick="gtag('event','click',{event_category:'calculator',event_label:'open_in_browser'});">Open in browser →</a>
+          <button onclick="installApp();gtag('event','click',{event_category:'calculator',event_label:'add_to_home_screen_preview'});" id="installBtn2" class="calc-preview-cta" style="display:none;">Add to home screen</button>
         </div>
       </div>
     </div>
@@ -220,7 +227,7 @@
       <div class="eyebrow">Learn the craft</div>
       <div class="heading">Freebies</div>
       <div class="blog-grid">
-        <a href="Hoody_Sourdough_Starter_Feeding_Ratios.pdf" download class="blog-card">
+        <a href="Hoody_Sourdough_Starter_Feeding_Ratios.pdf" download class="blog-card" onclick="gtag('event','download',{event_category:'freebies',event_label:'starter_feeding_ratios'});">
           <div class="blog-thumb"><span>Starter</span></div>
           <div class="blog-body">
             <div class="blog-tag">Free download</div>
@@ -229,7 +236,7 @@
             <span class="blog-download">Download PDF</span>
           </div>
         </a>
-        <a href="Temperature_Conversion_guide.pdf" download class="blog-card">
+        <a href="Temperature_Conversion_guide.pdf" download class="blog-card" onclick="gtag('event','download',{event_category:'freebies',event_label:'temperature_conversion'});">
           <div class="blog-thumb"><span>Temps</span></div>
           <div class="blog-body">
             <div class="blog-tag">Free download</div>
@@ -245,8 +252,8 @@
             <h3>Sourdough Hydration Calculator</h3>
             <p>Work out your perfect hydration percentage in seconds.</p>
             <div class="calc-card-btns">
-              <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-card-btn">Open in browser</a>
-              <button onclick="installApp()" id="installBtn3" class="calc-card-btn" style="display:none;">Add to home screen</button>
+              <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-card-btn" onclick="gtag('event','click',{event_category:'freebies',event_label:'open_calculator'});">Open in browser</a>
+              <button onclick="installApp();gtag('event','click',{event_category:'freebies',event_label:'add_to_home_screen'});" id="installBtn3" class="calc-card-btn" style="display:none;">Add to home screen</button>
             </div>
           </div>
         </div>
@@ -322,6 +329,7 @@
     function handleSubmit(e) {
       e.preventDefault();
       var form = e.target;
+      gtag('event', 'sign_up', {event_category: 'coming_soon', event_label: 'notify_me_email'});
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() })
         .then(function() {
           form.style.display = 'none';
