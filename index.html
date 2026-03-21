@@ -58,8 +58,17 @@
     .calc-section .heading { color: #F0EDE8; }
     .calc-section .eyebrow { color: #4A9EA6; }
     .calc-desc { font-size: 15px; color: #d0cbc4; line-height: 1.85; margin-bottom: 1.75rem; font-weight: 300; }
-    .calc-embed-box { border-radius: 16px; overflow: hidden; border: 1px solid rgba(240,237,232,0.15); height: 480px; }
-    .calc-embed-box iframe { width: 100%; height: 100%; border: none; background: #fff; }
+    .calc-preview { background: rgba(240,237,232,0.08); border: 1px solid rgba(240,237,232,0.15); border-radius: 16px; padding: 1.5rem; }
+    .calc-preview-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(240,237,232,0.1); }
+    .calc-preview-label { font-size: 13px; color: #d0cbc4; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; }
+    .calc-preview-input { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F0EDE8; font-weight: 600; }
+    .calc-preview-result { padding: 1.25rem 0 1rem; }
+    .calc-preview-result-label { font-size: 11px; color: #4A9EA6; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+    .calc-preview-result-val { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: #F0EDE8; font-weight: 600; line-height: 1; margin-bottom: 10px; }
+    .calc-preview-bar-w { height: 4px; background: #3a3a37; border-radius: 2px; margin-bottom: 1.25rem; }
+    .calc-preview-bar { height: 4px; background: #4A9EA6; border-radius: 2px; }
+    .calc-preview-cta { display: block; text-align: center; font-size: 12px; color: #4A9EA6; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; transition: border-color 0.2s; }
+    .calc-preview-cta:hover { border-color: #4A9EA6; }
     .why-section { padding: 5rem 2rem; max-width: 1040px; margin: 0 auto; }
     .why-section .heading { color: #1C1C1A; }
     .why-desc { font-size: 15px; color: #5a554f; line-height: 1.85; max-width: 540px; font-weight: 300; }
@@ -165,10 +174,31 @@
         <div class="eyebrow">Free tool</div>
         <div class="heading">Hydration Calculator</div>
         <p class="calc-desc">Not sure what hydration to aim for? Our free calculator does the hard work. No sign-up needed — just bake.</p>
-        <a href="https://hoodyssourdoughkitchen.com.au#calculator" class="btn-light">Open full calculator</a>
+        <a href="https://hoodys-sourdough-kitchen.netlify.app" target="_blank" class="btn-light">Open calculator</a>
       </div>
-      <div class="calc-embed-box">
-        <iframe src="https://hoodys-sourdough-kitchen.netlify.app" title="Sourdough Hydration Calculator" loading="lazy"></iframe>
+      <div class="calc-preview">
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Flour</div>
+          <div class="calc-preview-input">500 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Water</div>
+          <div class="calc-preview-input">375 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Starter</div>
+          <div class="calc-preview-input">100 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Salt</div>
+          <div class="calc-preview-input">10 g</div>
+        </div>
+        <div class="calc-preview-result">
+          <div class="calc-preview-result-label">Hydration</div>
+          <div class="calc-preview-result-val">75%</div>
+          <div class="calc-preview-bar-w"><div class="calc-preview-bar" style="width:75%;"></div></div>
+        </div>
+        <a href="https://hoodys-sourdough-kitchen.netlify.app" target="_blank" class="calc-preview-cta">Try the full calculator →</a>
       </div>
     </div>
   </section>
