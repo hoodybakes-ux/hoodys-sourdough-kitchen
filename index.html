@@ -50,7 +50,8 @@
     .calc-preview-result-val { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: #F0EDE8; font-weight: 600; line-height: 1; margin-bottom: 10px; }
     .calc-preview-bar-w { height: 4px; background: #3a3a37; border-radius: 2px; margin-bottom: 1.25rem; }
     .calc-preview-bar { height: 4px; background: #4A9EA6; border-radius: 2px; }
-    .calc-preview-cta { display: block; text-align: center; font-size: 12px; color: #4A9EA6; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; }
+    .calc-preview-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .calc-preview-cta { flex: 1; text-align: center; font-size: 12px; color: #4A9EA6; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; background: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 400; }
     .calc-preview-cta:hover { border-color: #4A9EA6; }
     .why-section { padding: 5rem 2rem; max-width: 1040px; margin: 0 auto; }
     .why-section .heading { color: #1C1C1A; }
@@ -75,6 +76,9 @@
     .blog-body h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; margin-bottom: 8px; color: #F0EDE8; line-height: 1.25; }
     .blog-body p { font-size: 13px; color: #a8a39c; line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
     .blog-download { font-size: 11px; color: #4A9EA6; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 16px; display: inline-block; }
+    .calc-card-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .calc-card-btn { font-size: 11px; color: #4A9EA6; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 16px; display: inline-block; text-decoration: none; background: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+    .calc-card-btn:hover { border-color: #4A9EA6; }
     .about-section { padding: 5rem 2rem; max-width: 680px; margin: 0 auto; text-align: center; }
     .about-logo { height: 110px; width: auto; margin: 0 auto 2rem; display: block; }
     .about-section .heading { color: #1C1C1A; margin-bottom: 1.25rem; }
@@ -83,7 +87,7 @@
     .coming-inner { max-width: 600px; margin: 0 auto; }
     .coming-section .eyebrow { color: #4A9EA6; }
     .coming-section .heading { color: #F0EDE8; }
-    .coming-section p { font-size: 15px; color: #a8a39c; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+    .coming-section > .coming-inner > p { font-size: 15px; color: #a8a39c; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
     .coming-features { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 2.5rem; }
     .coming-pill { background: rgba(74,158,166,0.15); border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 18px; font-size: 12px; color: #4A9EA6; font-weight: 400; letter-spacing: 0.06em; }
     .signup-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
@@ -169,7 +173,10 @@
           <div class="calc-preview-result-val">75%</div>
           <div class="calc-preview-bar-w"><div class="calc-preview-bar" style="width:75%;"></div></div>
         </div>
-        <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-preview-cta">Open the full calculator →</a>
+        <div class="calc-preview-btns">
+          <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-preview-cta">Open in browser →</a>
+          <button onclick="installApp()" id="installBtn" class="calc-preview-cta" style="display:none;">Add to home screen</button>
+        </div>
       </div>
     </div>
   </section>
@@ -227,15 +234,18 @@
             <span class="blog-download">Download PDF</span>
           </div>
         </a>
-        <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="blog-card">
+        <div class="blog-card" style="cursor:default;">
           <div class="blog-thumb"><span>Calculator</span></div>
           <div class="blog-body">
             <div class="blog-tag">Free tool</div>
             <h3>Sourdough Hydration Calculator</h3>
             <p>Work out your perfect hydration percentage in seconds.</p>
-            <span class="blog-download">Open tool</span>
+            <div class="calc-card-btns">
+              <a href="https://hoodys-sourdough-hub.netlify.app" target="_blank" class="calc-card-btn">Open in browser</a>
+              <button onclick="installApp()" id="installBtn2" class="calc-card-btn" style="display:none;">Add to home screen</button>
+            </div>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -287,6 +297,21 @@
       } else {
         links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#F0EDE8;padding:1.5rem 2rem;border-bottom:1px solid #d6d0c8;z-index:99;gap:1.25rem;';
         links.setAttribute('data-open', 'true');
+      }
+    }
+    var deferredPrompt;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installBtn').style.display = 'inline-block';
+      document.getElementById('installBtn2').style.display = 'inline-block';
+    });
+    function installApp() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
+      } else {
+        window.open('https://hoodys-sourdough-hub.netlify.app', '_blank');
       }
     }
     function handleSubmit(e) {
