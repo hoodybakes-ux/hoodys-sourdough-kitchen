@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoody's Sourdough Kitchen</title>
+  <meta name="description" content="Free tools, expert guides, and a full bake management app to help you craft better sourdough." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #F0EDE8; font-family: 'Montserrat', sans-serif; color: #1C1C1A; }
+    nav { background: #F0EDE8; border-bottom: 1px solid #d6d0c8; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo img { height: 48px; width: 48px; object-fit: contain; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 11px; font-weight: 400; color: #1C1C1A; text-decoration: none; opacity: 0.6; letter-spacing: 0.1em; text-transform: uppercase; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; color: #4A9EA6; }
+    .nav-cta { background: #1C1C1A; color: #F0EDE8; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-cta:hover { background: #4A9EA6; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: #1C1C1A; }
+    .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; color: #4A9EA6; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .heading { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 54px; line-height: 1.05; margin-bottom: 1rem; }
+    .btn-light { background: #F0EDE8; color: #1C1C1A; border: none; padding: 14px 30px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block; }
+    .btn-ghost { background: transparent; color: #F0EDE8; border: 1px solid rgba(240,237,232,0.45); padding: 14px 30px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block; }
+    .btn-teal { background: #4A9EA6; color: #F0EDE8; border: none; padding: 14px 30px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; display: inline-block; }
+    .btn-teal:hover { background: #3a8e96; }
+    .hero { position: relative; min-height: 560px; display: flex; align-items: center; padding: 6rem 2rem; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=1600&q=85'); background-size: cover; background-position: center 40%; }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(14,12,10,0.62); }
+    .hero-content { position: relative; z-index: 2; max-width: 660px; }
+    .hero-logo { height: 160px; width: auto; margin-bottom: 1.75rem; display: block; }
+    .hero p { font-size: 16px; color: #d8d3cc; line-height: 1.9; margin-bottom: 2rem; max-width: 480px; font-weight: 300; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .app-section { background: #1C1C1A; padding: 5rem 2rem; }
+    .app-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .app-section .heading { color: #F0EDE8; }
+    .app-section .eyebrow { color: #4A9EA6; }
+    .app-desc { font-size: 15px; color: #a8a39c; line-height: 1.85; font-weight: 300; }
+    .app-list { list-style: none; padding: 0; margin: 1.75rem 0 2rem; }
+    .app-list li { font-size: 14px; color: #c8c3bc; padding: 9px 0; border-bottom: 1px solid #2a2a27; display: flex; gap: 12px; align-items: center; font-weight: 300; }
+    .app-list li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4A9EA6; flex-shrink: 0; }
+    .mockup { background: #242422; border-radius: 16px; border: 1px solid #333330; padding: 1.5rem; }
+    .mock-head { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #333330; }
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mock-title { font-size: 11px; font-weight: 300; color: #555552; letter-spacing: 0.07em; text-transform: uppercase; }
+    .mock-row { background: #2e2e2b; border-radius: 8px; padding: 11px 14px; margin-bottom: 10px; }
+    .mock-lbl { font-size: 10px; color: #555552; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
+    .mock-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F0EDE8; font-weight: 600; }
+    .mock-bar-w { height: 3px; background: #3a3a37; border-radius: 2px; margin-top: 7px; }
+    .mock-bar { height: 3px; background: #4A9EA6; border-radius: 2px; }
+    .calc-section { position: relative; padding: 5rem 2rem; overflow: hidden; }
+    .calc-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=1600&q=85'); background-size: cover; background-position: center; }
+    .calc-overlay { position: absolute; inset: 0; background: rgba(14,12,10,0.70); }
+    .calc-inner { position: relative; z-index: 2; max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .calc-section .heading { color: #F0EDE8; }
+    .calc-section .eyebrow { color: #4A9EA6; }
+    .calc-desc { font-size: 15px; color: #d0cbc4; line-height: 1.85; margin-bottom: 1.75rem; font-weight: 300; }
+    .calc-embed-box { border-radius: 16px; overflow: hidden; border: 1px solid rgba(240,237,232,0.15); height: 480px; }
+    .calc-embed-box iframe { width: 100%; height: 100%; border: none; background: #fff; }
+    .why-section { padding: 5rem 2rem; max-width: 1040px; margin: 0 auto; }
+    .why-section .heading { color: #1C1C1A; }
+    .why-desc { font-size: 15px; color: #5a554f; line-height: 1.85; max-width: 540px; font-weight: 300; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 2.5rem; }
+    .feat { background: #fff; border: 1px solid #ddd8d0; border-radius: 14px; padding: 1.5rem; }
+    .feat h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 22px; margin-bottom: 8px; color: #1C1C1A; }
+    .feat p { font-size: 13px; color: #7a7570; line-height: 1.65; font-weight: 300; }
+    .feat-icon { width: 36px; height: 36px; background: #e8e4de; border-radius: 8px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; }
+    .freebies-section { position: relative; padding: 5rem 2rem; overflow: hidden; }
+    .freebies-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=85'); background-size: cover; background-position: center 60%; }
+    .freebies-overlay { position: absolute; inset: 0; background: rgba(14,12,10,0.74); }
+    .freebies-inner { position: relative; z-index: 2; max-width: 1040px; margin: 0 auto; }
+    .freebies-inner .heading { color: #F0EDE8; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 2rem; }
+    .blog-card { background: rgba(240,237,232,0.07); border: 1px solid rgba(240,237,232,0.13); border-radius: 14px; overflow: hidden; transition: background 0.2s; }
+    .blog-card:hover { background: rgba(240,237,232,0.12); }
+    .blog-thumb { height: 90px; background: rgba(74,158,166,0.18); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(240,237,232,0.1); }
+    .blog-thumb span { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px; color: #4A9EA6; }
+    .blog-body { padding: 1.25rem; }
+    .blog-tag { font-size: 10px; font-weight: 400; color: #4A9EA6; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+    .blog-body h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; margin-bottom: 8px; color: #F0EDE8; line-height: 1.25; }
+    .blog-body p { font-size: 13px; color: #a8a39c; line-height: 1.65; font-weight: 300; }
+    .about-section { padding: 5rem 2rem; max-width: 680px; margin: 0 auto; text-align: center; }
+    .about-logo { height: 110px; width: auto; margin: 0 auto 2rem; display: block; }
+    .about-section .heading { color: #1C1C1A; margin-bottom: 1.25rem; }
+    .about-section p { font-size: 16px; color: #5a554f; line-height: 1.95; font-weight: 300; }
+    footer { background: #1C1C1A; padding: 3rem 2rem; text-align: center; }
+    .foot-logo { height: 56px; width: auto; margin: 0 auto 1rem; display: block; }
+    footer p { font-size: 12px; color: #444441; letter-spacing: 0.07em; font-weight: 300; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .heading { font-size: 40px; }
+      .app-inner, .calc-inner { grid-template-columns: 1fr; }
+      .hero-logo { height: 120px; }
+      .hero { min-height: 440px; padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-logo"><img src="logo.png" alt="Hoody's Sourdough Kitchen" /></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#app">Hoody Bakes</a>
+      <a href="#freebies">Guides</a>
+      <a href="#about">About</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'})">Get the app</button>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="logo.png" alt="Hoody's Sourdough Kitchen" class="hero-logo" />
+      <p>Free tools, expert guides, and a full bake management app to help you craft better sourdough — from your first loaf to your tenth batch.</p>
+      <div class="hero-btns">
+        <a href="#freebies" class="btn-light">Get the free guides</a>
+        <a href="#calculator" class="btn-ghost">Try the calculator</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-section" id="app">
+    <div class="app-inner">
+      <div>
+        <div class="eyebrow">Premium app</div>
+        <div class="heading">Hoody Bakes</div>
+        <p class="app-desc">One place for all your sourdough recipes, hydration tracking, inclusions, and batch scaling. Built by a baker, for bakers.</p>
+        <ul class="app-list">
+          <li>Hydration calculator with real-time tracking</li>
+          <li>Full recipe manager with notes &amp; inclusions</li>
+          <li>Scale any recipe — 1 loaf to 20 loaves</li>
+          <li>Bake journal — log every session</li>
+          <li>Works offline on your phone</li>
+        </ul>
+        <a href="#" class="btn-teal">Get Hoody Bakes — one-off purchase</a>
+      </div>
+      <div class="mockup">
+        <div class="mock-head">
+          <div class="mock-dot" style="background:#4A9EA6;"></div>
+          <div class="mock-dot" style="background:#333330;"></div>
+          <div class="mock-title">Country Sourdough — x4 loaves</div>
+        </div>
+        <div class="mock-row"><div class="mock-lbl">Hydration</div><div class="mock-val">75%</div><div class="mock-bar-w"><div class="mock-bar" style="width:75%;"></div></div></div>
+        <div class="mock-row"><div class="mock-lbl">Flour</div><div class="mock-val">2,000 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:88%;"></div></div></div>
+        <div class="mock-row"><div class="mock-lbl">Water</div><div class="mock-val">1,500 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:65%;"></div></div></div>
+        <div class="mock-row"><div class="mock-lbl">Inclusions — walnuts &amp; rosemary</div><div class="mock-val">240 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:22%;"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-section" id="calculator">
+    <div class="calc-bg"></div>
+    <div class="calc-overlay"></div>
+    <div class="calc-inner">
+      <div>
+        <div class="eyebrow">Free tool</div>
+        <div class="heading">Hydration Calculator</div>
+        <p class="calc-desc">Not sure what hydration to aim for? Our free calculator does the hard work. No sign-up needed — just bake.</p>
+        <a href="https://hoodyssourdoughkitchen.com.au#calculator" class="btn-light">Open full calculator</a>
+      </div>
+      <div class="calc-embed-box">
+        <iframe src="https://hoodys-sourdough-kitchen.netlify.app" title="Sourdough Hydration Calculator" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="eyebrow">Why Hoody's</div>
+    <div class="heading">Built by someone who actually bakes</div>
+    <p class="why-desc">No fluff, no corporate recipes. Just honest tools and guides from a sourdough obsessive who wanted better software for tracking bakes.</p>
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#4A9EA6" stroke-width="1.5"/><path d="M6 9h6M9 6v6" stroke="#4A9EA6" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Flour-first thinking</h3>
+        <p>Every tool is designed around how bakers actually think about their dough.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="#4A9EA6" stroke-width="1.5"/><path d="M5 9h8M5 6h8M5 12h5" stroke="#4A9EA6" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Precise scaling</h3>
+        <p>Scale from 1 loaf to 20 without mental arithmetic or spreadsheet chaos.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V6l6-3 6 3v9" stroke="#4A9EA6" stroke-width="1.5" stroke-linecap="round"/><rect x="7" y="10" width="4" height="5" rx="0.5" stroke="#4A9EA6" stroke-width="1.5"/></svg></div>
+        <h3>Bake journal</h3>
+        <p>Log inclusions, hydration, and notes so every bake is repeatable.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="4" y="1" width="10" height="16" rx="2" stroke="#4A9EA6" stroke-width="1.5"/><circle cx="9" cy="14" r="1" fill="#4A9EA6"/></svg></div>
+        <h3>Works on your phone</h3>
+        <p>Install as a web app — use it at the bench, hands covered in flour.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="freebies-section" id="freebies">
+    <div class="freebies-bg"></div>
+    <div class="freebies-overlay"></div>
+    <div class="freebies-inner">
+      <div class="eyebrow">Learn the craft</div>
+      <div class="heading">Freebies</div>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-thumb"><span>Starter</span></div>
+          <div class="blog-body">
+            <div class="blog-tag">Beginner guide</div>
+            <h3>What is baker's percentage &amp; why it matters</h3>
+            <p>The foundation of every sourdough recipe — explained simply.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb"><span>Hydration</span></div>
+          <div class="blog-body">
+            <div class="blog-tag">Deep dive</div>
+            <h3>High vs low hydration — which is right for you?</h3>
+            <p>How water content changes your crumb and crust.</p>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-thumb"><span>Scaling</span></div>
+          <div class="blog-body">
+            <div class="blog-tag">Free download</div>
+            <h3>Batch scaling cheat sheet — printable PDF</h3>
+            <p>Scale any recipe up to 10 loaves without the maths.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <img src="logo.png" alt="Hoody's Sourdough Kitchen" class="about-logo" />
+    <div class="eyebrow">About</div>
+    <div class="heading">Hey, I'm Hoody</div>
+    <p>I started baking sourdough and quickly realised the tools out there weren't built for people who bake with real intention. So I built my own. Hoody's Sourdough Kitchen is where I share everything — free guides, honest recipes, and the app I wish I'd had from day one.</p>
+  </section>
+
+  <footer>
+    <img src="logo.png" alt="Hoody's Sourdough Kitchen" class="foot-logo" />
+    <p>&copy; 2026 Hoody Bakes &middot; Built with flour, water, salt &amp; a bit of code</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      var links = document.getElementById('navLinks');
+      var open = links.getAttribute('data-open') === 'true';
+      if (open) {
+        links.removeAttribute('style');
+        links.setAttribute('data-open', 'false');
+      } else {
+        links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#F0EDE8;padding:1.5rem 2rem;border-bottom:1px solid #d6d0c8;z-index:99;gap:1.25rem;';
+        links.setAttribute('data-open', 'true');
+      }
+    }
+  </script>
+</body>
+</html>
