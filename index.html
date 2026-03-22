@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H65ZJ62NBY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H65ZJ62NBY');
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -34,23 +41,6 @@
     .hero-logo { height: 160px; width: auto; margin-bottom: 1.75rem; display: block; }
     .hero p { font-size: 16px; color: #d8d3cc; line-height: 1.9; margin-bottom: 2rem; max-width: 480px; font-weight: 300; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .app-section { background: #1C1C1A; padding: 5rem 2rem; }
-    .app-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .app-section .heading { color: #F0EDE8; }
-    .app-section .eyebrow { color: #4A9EA6; }
-    .app-desc { font-size: 15px; color: #a8a39c; line-height: 1.85; font-weight: 300; }
-    .app-list { list-style: none; padding: 0; margin: 1.75rem 0 2rem; }
-    .app-list li { font-size: 14px; color: #c8c3bc; padding: 9px 0; border-bottom: 1px solid #2a2a27; display: flex; gap: 12px; align-items: center; font-weight: 300; }
-    .app-list li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4A9EA6; flex-shrink: 0; }
-    .mockup { background: #242422; border-radius: 16px; border: 1px solid #333330; padding: 1.5rem; }
-    .mock-head { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #333330; }
-    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .mock-title { font-size: 11px; font-weight: 300; color: #555552; letter-spacing: 0.07em; text-transform: uppercase; }
-    .mock-row { background: #2e2e2b; border-radius: 8px; padding: 11px 14px; margin-bottom: 10px; }
-    .mock-lbl { font-size: 10px; color: #555552; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
-    .mock-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #F0EDE8; font-weight: 600; }
-    .mock-bar-w { height: 3px; background: #3a3a37; border-radius: 2px; margin-top: 7px; }
-    .mock-bar { height: 3px; background: #4A9EA6; border-radius: 2px; }
     .calc-section { position: relative; padding: 5rem 2rem; overflow: hidden; }
     .calc-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=1600&q=85'); background-size: cover; background-position: center; }
     .calc-overlay { position: absolute; inset: 0; background: rgba(14,12,10,0.70); }
@@ -58,8 +48,19 @@
     .calc-section .heading { color: #F0EDE8; }
     .calc-section .eyebrow { color: #4A9EA6; }
     .calc-desc { font-size: 15px; color: #d0cbc4; line-height: 1.85; margin-bottom: 1.75rem; font-weight: 300; }
-    .calc-embed-box { border-radius: 16px; overflow: hidden; border: 1px solid rgba(240,237,232,0.15); height: 480px; }
-    .calc-embed-box iframe { width: 100%; height: 100%; border: none; background: #fff; }
+    .calc-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .calc-preview { background: rgba(240,237,232,0.08); border: 1px solid rgba(240,237,232,0.15); border-radius: 16px; padding: 1.5rem; }
+    .calc-preview-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(240,237,232,0.1); }
+    .calc-preview-label { font-size: 13px; color: #d0cbc4; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase; }
+    .calc-preview-input { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #F0EDE8; font-weight: 600; }
+    .calc-preview-result { padding: 1.25rem 0 1rem; }
+    .calc-preview-result-label { font-size: 11px; color: #4A9EA6; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px; }
+    .calc-preview-result-val { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: #F0EDE8; font-weight: 600; line-height: 1; margin-bottom: 10px; }
+    .calc-preview-bar-w { height: 4px; background: #3a3a37; border-radius: 2px; margin-bottom: 1.25rem; }
+    .calc-preview-bar { height: 4px; background: #4A9EA6; border-radius: 2px; }
+    .calc-preview-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .calc-preview-cta { flex: 1; text-align: center; font-size: 12px; color: #4A9EA6; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; background: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+    .calc-preview-cta:hover { border-color: #4A9EA6; }
     .why-section { padding: 5rem 2rem; max-width: 1040px; margin: 0 auto; }
     .why-section .heading { color: #1C1C1A; }
     .why-desc { font-size: 15px; color: #5a554f; line-height: 1.85; max-width: 540px; font-weight: 300; }
@@ -74,31 +75,50 @@
     .freebies-inner { position: relative; z-index: 2; max-width: 1040px; margin: 0 auto; }
     .freebies-inner .heading { color: #F0EDE8; }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 2rem; }
-    .blog-card { background: rgba(240,237,232,0.07); border: 1px solid rgba(240,237,232,0.13); border-radius: 14px; overflow: hidden; transition: background 0.2s; }
-    .blog-card:hover { background: rgba(240,237,232,0.12); }
+    .blog-card { background: rgba(240,237,232,0.07); border: 1px solid rgba(240,237,232,0.13); border-radius: 14px; overflow: hidden; transition: background 0.2s; text-decoration: none; display: block; }
+    .blog-card:hover { background: rgba(240,237,232,0.14); }
     .blog-thumb { height: 90px; background: rgba(74,158,166,0.18); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(240,237,232,0.1); }
     .blog-thumb span { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px; color: #4A9EA6; }
     .blog-body { padding: 1.25rem; }
     .blog-tag { font-size: 10px; font-weight: 400; color: #4A9EA6; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
     .blog-body h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; margin-bottom: 8px; color: #F0EDE8; line-height: 1.25; }
-    .blog-body p { font-size: 13px; color: #a8a39c; line-height: 1.65; font-weight: 300; }
+    .blog-body p { font-size: 13px; color: #a8a39c; line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+    .blog-download { font-size: 11px; color: #4A9EA6; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 16px; display: inline-block; }
+    .calc-card-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .calc-card-btn { font-size: 11px; color: #4A9EA6; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 16px; display: inline-block; text-decoration: none; background: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 400; }
+    .calc-card-btn:hover { border-color: #4A9EA6; }
     .about-section { padding: 5rem 2rem; max-width: 680px; margin: 0 auto; text-align: center; }
     .about-logo { height: 110px; width: auto; margin: 0 auto 2rem; display: block; }
     .about-section .heading { color: #1C1C1A; margin-bottom: 1.25rem; }
     .about-section p { font-size: 16px; color: #5a554f; line-height: 1.95; font-weight: 300; }
-    footer { background: #1C1C1A; padding: 3rem 2rem; text-align: center; }
+    .coming-section { background: #1C1C1A; padding: 5rem 2rem; text-align: center; }
+    .coming-inner { max-width: 600px; margin: 0 auto; }
+    .coming-section .eyebrow { color: #4A9EA6; }
+    .coming-section .heading { color: #F0EDE8; }
+    .coming-inner > p { font-size: 15px; color: #a8a39c; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+    .coming-features { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 2.5rem; }
+    .coming-pill { background: rgba(74,158,166,0.15); border: 1px solid rgba(74,158,166,0.3); border-radius: 50px; padding: 8px 18px; font-size: 12px; color: #4A9EA6; font-weight: 400; letter-spacing: 0.06em; }
+    .signup-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+    .signup-form input[type="email"] { flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 50px; border: 1px solid rgba(240,237,232,0.2); background: rgba(240,237,232,0.06); color: #F0EDE8; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; outline: none; }
+    .signup-form input[type="email"]::placeholder { color: rgba(240,237,232,0.35); }
+    .signup-form input[type="email"]:focus { border-color: #4A9EA6; }
+    .signup-form button { background: #4A9EA6; color: #F0EDE8; border: none; padding: 14px 28px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 400; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+    .signup-form button:hover { background: #3a8e96; }
+    .signup-success { display: none; font-size: 14px; color: #4A9EA6; margin-top: 1rem; font-weight: 300; }
+    footer { background: #1C1C1A; padding: 3rem 2rem; text-align: center; border-top: 1px solid #2a2a27; }
     .foot-logo { height: 56px; width: auto; margin: 0 auto 1rem; display: block; }
     footer p { font-size: 12px; color: #444441; letter-spacing: 0.07em; font-weight: 300; }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .heading { font-size: 40px; }
-      .app-inner, .calc-inner { grid-template-columns: 1fr; }
+      .calc-inner { grid-template-columns: 1fr; }
       .hero-logo { height: 120px; }
       .hero { min-height: 440px; padding: 4rem 1.5rem; }
+      .signup-form { flex-direction: column; }
+      .signup-form input, .signup-form button { width: 100%; }
     }
   </style>
-<meta name="google-site-verification" content="xOMH0mPVeotZcw0IPQF_0vICBhEPELJO4LquZJorqxg" />
 </head>
 <body>
   <nav id="navbar">
@@ -106,11 +126,11 @@
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#calculator">Calculator</a>
-      <a href="#app">Hoody Bakes</a>
       <a href="#freebies">Guides</a>
       <a href="#about">About</a>
+      <a href="#coming">Coming Soon</a>
     </div>
-    <button class="nav-cta" onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'})">Get the app</button>
+    <button class="nav-cta" onclick="document.getElementById('coming').scrollIntoView({behavior:'smooth'});gtag('event','click',{event_category:'nav',event_label:'notify_me'});">Notify me</button>
     <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -123,37 +143,8 @@
       <img src="logo.png" alt="Hoody's Sourdough Kitchen" class="hero-logo" />
       <p>Free tools, expert guides, and a full bake management app to help you craft better sourdough — from your first loaf to your tenth batch.</p>
       <div class="hero-btns">
-        <a href="#freebies" class="btn-light">Get the free guides</a>
-        <a href="#calculator" class="btn-ghost">Try the calculator</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="app-section" id="app">
-    <div class="app-inner">
-      <div>
-        <div class="eyebrow">Premium app</div>
-        <div class="heading">Hoody Bakes</div>
-        <p class="app-desc">One place for all your sourdough recipes, hydration tracking, inclusions, and batch scaling. Built by a baker, for bakers.</p>
-        <ul class="app-list">
-          <li>Hydration calculator with real-time tracking</li>
-          <li>Full recipe manager with notes &amp; inclusions</li>
-          <li>Scale any recipe — 1 loaf to 20 loaves</li>
-          <li>Bake journal — log every session</li>
-          <li>Works offline on your phone</li>
-        </ul>
-        <a href="#" class="btn-teal">Get Hoody Bakes — one-off purchase</a>
-      </div>
-      <div class="mockup">
-        <div class="mock-head">
-          <div class="mock-dot" style="background:#4A9EA6;"></div>
-          <div class="mock-dot" style="background:#333330;"></div>
-          <div class="mock-title">Country Sourdough — x4 loaves</div>
-        </div>
-        <div class="mock-row"><div class="mock-lbl">Hydration</div><div class="mock-val">75%</div><div class="mock-bar-w"><div class="mock-bar" style="width:75%;"></div></div></div>
-        <div class="mock-row"><div class="mock-lbl">Flour</div><div class="mock-val">2,000 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:88%;"></div></div></div>
-        <div class="mock-row"><div class="mock-lbl">Water</div><div class="mock-val">1,500 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:65%;"></div></div></div>
-        <div class="mock-row"><div class="mock-lbl">Inclusions — walnuts &amp; rosemary</div><div class="mock-val">240 g</div><div class="mock-bar-w"><div class="mock-bar" style="width:22%;"></div></div></div>
+        <a href="#freebies" class="btn-light" onclick="gtag('event','click',{event_category:'hero',event_label:'get_free_guides'});">Get the free guides</a>
+        <a href="#calculator" class="btn-ghost" onclick="gtag('event','click',{event_category:'hero',event_label:'try_calculator'});">Try the calculator</a>
       </div>
     </div>
   </section>
@@ -166,10 +157,37 @@
         <div class="eyebrow">Free tool</div>
         <div class="heading">Hydration Calculator</div>
         <p class="calc-desc">Not sure what hydration to aim for? Our free calculator does the hard work. No sign-up needed — just bake.</p>
-        <a href="https://hoodyssourdoughkitchen.com.au#calculator" class="btn-light">Open full calculator</a>
+        <div class="calc-btns">
+          <a href="https://hydrationcalculator.hoodyssourdoughkitchen.com.au" target="_blank" class="btn-light" onclick="gtag('event','click',{event_category:'calculator',event_label:'open_calculator'});">Open calculator</a>
+          <button onclick="installApp();gtag('event','click',{event_category:'calculator',event_label:'add_to_home_screen'});" id="installBtn" class="btn-ghost" style="display:none;">Add to home screen</button>
+        </div>
       </div>
-      <div class="calc-embed-box">
-        <iframe src="https://hoodys-sourdough-kitchen.netlify.app" title="Sourdough Hydration Calculator" loading="lazy"></iframe>
+      <div class="calc-preview">
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Flour</div>
+          <div class="calc-preview-input">500 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Water</div>
+          <div class="calc-preview-input">375 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Starter</div>
+          <div class="calc-preview-input">100 g</div>
+        </div>
+        <div class="calc-preview-row">
+          <div class="calc-preview-label">Salt</div>
+          <div class="calc-preview-input">10 g</div>
+        </div>
+        <div class="calc-preview-result">
+          <div class="calc-preview-result-label">Hydration</div>
+          <div class="calc-preview-result-val">75%</div>
+          <div class="calc-preview-bar-w"><div class="calc-preview-bar" style="width:75%;"></div></div>
+        </div>
+        <div class="calc-preview-btns">
+          <a href="https://hydrationcalculator.hoodyssourdoughkitchen.com.au" target="_blank" class="calc-preview-cta" onclick="gtag('event','click',{event_category:'calculator',event_label:'open_in_browser'});">Open in browser →</a>
+          <button onclick="installApp();gtag('event','click',{event_category:'calculator',event_label:'add_to_home_screen_preview'});" id="installBtn2" class="calc-preview-cta" style="display:none;">Add to home screen</button>
+        </div>
       </div>
     </div>
   </section>
@@ -209,28 +227,34 @@
       <div class="eyebrow">Learn the craft</div>
       <div class="heading">Freebies</div>
       <div class="blog-grid">
-        <div class="blog-card">
+        <a href="Hoody_Sourdough_Starter_Feeding_Ratios.pdf" download class="blog-card" onclick="gtag('event','download',{event_category:'freebies',event_label:'starter_feeding_ratios'});">
           <div class="blog-thumb"><span>Starter</span></div>
           <div class="blog-body">
-            <div class="blog-tag">Beginner guide</div>
-            <h3>What is baker's percentage &amp; why it matters</h3>
-            <p>The foundation of every sourdough recipe — explained simply.</p>
+            <div class="blog-tag">Free download</div>
+            <h3>Sourdough Starter Feeding Ratios</h3>
+            <p>Simple feeds for a happy, active starter — 1:5:5 and 1:10:10 ratios explained.</p>
+            <span class="blog-download">Download PDF</span>
           </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-thumb"><span>Hydration</span></div>
-          <div class="blog-body">
-            <div class="blog-tag">Deep dive</div>
-            <h3>High vs low hydration — which is right for you?</h3>
-            <p>How water content changes your crumb and crust.</p>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-thumb"><span>Scaling</span></div>
+        </a>
+        <a href="Temperature_Conversion_guide.pdf" download class="blog-card" onclick="gtag('event','download',{event_category:'freebies',event_label:'temperature_conversion'});">
+          <div class="blog-thumb"><span>Temps</span></div>
           <div class="blog-body">
             <div class="blog-tag">Free download</div>
-            <h3>Batch scaling cheat sheet — printable PDF</h3>
-            <p>Scale any recipe up to 10 loaves without the maths.</p>
+            <h3>Oven Temperature Conversion Guide</h3>
+            <p>Convert oven and dough temperatures without second-guessing.</p>
+            <span class="blog-download">Download PDF</span>
+          </div>
+        </a>
+        <div class="blog-card" style="cursor:default;">
+          <div class="blog-thumb"><span>Calculator</span></div>
+          <div class="blog-body">
+            <div class="blog-tag">Free tool</div>
+            <h3>Sourdough Hydration Calculator</h3>
+            <p>Work out your perfect hydration percentage in seconds.</p>
+            <div class="calc-card-btns">
+              <a href="https://hydrationcalculator.hoodyssourdoughkitchen.com.au" target="_blank" class="calc-card-btn" onclick="gtag('event','click',{event_category:'freebies',event_label:'open_calculator'});">Open in browser</a>
+              <button onclick="installApp();gtag('event','click',{event_category:'freebies',event_label:'add_to_home_screen'});" id="installBtn3" class="calc-card-btn" style="display:none;">Add to home screen</button>
+            </div>
           </div>
         </div>
       </div>
@@ -242,6 +266,31 @@
     <div class="eyebrow">About</div>
     <div class="heading">Hey, I'm Hoody</div>
     <p>I started baking sourdough and quickly realised the tools out there weren't built for people who bake with real intention. So I built my own. Hoody's Sourdough Kitchen is where I share everything — free guides, honest recipes, and the app I wish I'd had from day one.</p>
+  </section>
+
+  <section class="coming-section" id="coming">
+    <div class="coming-inner">
+      <div class="eyebrow">Coming soon</div>
+      <div class="heading">Hoody Bakes App</div>
+      <p>A full sourdough bake management app is in the works — recipe manager, hydration tracking, batch scaling, bake journal, and more. Built by a baker, for bakers.</p>
+      <div class="coming-features">
+        <span class="coming-pill">Recipe manager</span>
+        <span class="coming-pill">Batch scaling</span>
+        <span class="coming-pill">Hydration tracking</span>
+        <span class="coming-pill">Bake journal</span>
+        <span class="coming-pill">Inclusions notes</span>
+        <span class="coming-pill">Works offline</span>
+      </div>
+      <form name="notify" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="notify" />
+        <input type="hidden" name="bot-field" />
+        <div class="signup-form">
+          <input type="email" name="email" placeholder="Your email address" required />
+          <button type="submit">Notify me</button>
+        </div>
+      </form>
+      <p class="signup-success" id="successMsg">You're on the list — we'll be in touch!</p>
+    </div>
   </section>
 
   <footer>
@@ -260,6 +309,32 @@
         links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#F0EDE8;padding:1.5rem 2rem;border-bottom:1px solid #d6d0c8;z-index:99;gap:1.25rem;';
         links.setAttribute('data-open', 'true');
       }
+    }
+    var deferredPrompt;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installBtn').style.display = 'inline-block';
+      document.getElementById('installBtn2').style.display = 'inline-block';
+      document.getElementById('installBtn3').style.display = 'inline-block';
+    });
+    function installApp() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
+      } else {
+        window.open('https://hydrationcalculator.hoodyssourdoughkitchen.com.au', '_blank');
+      }
+    }
+    function handleSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      gtag('event', 'sign_up', {event_category: 'coming_soon', event_label: 'notify_me_email'});
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() })
+        .then(function() {
+          form.style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        });
     }
   </script>
 </body>
