@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Guides & Resources — Hoody's Sourdough Kitchen</title>
+<meta name="description" content="Free sourdough guides, tools and video walkthroughs from Hoody's Sourdough Kitchen. Download the starter guide, hydration cheat sheet and more." />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CL9QCDL4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CL9QCDL4S');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #4A9EA6;
+    --teal-dark: #357880;
+    --teal-pale: #eef8f9;
+    --cream: #F0EDE8;
+    --cream-dark: #e0dbd2;
+    --near-black: #1C1C1A;
+    --mid: #6b6b68;
+    --light: #a8a8a4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--near-black);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--near-black);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-back {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    background: var(--near-black);
+    padding: 64px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.4;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero p {
+    font-size: 13px;
+    color: var(--light);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* PAGE LAYOUT */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 56px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+
+  /* GUIDE CARD — full width featured */
+  .guide-card {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(28,28,26,0.07);
+    margin-bottom: 16px;
+  }
+
+  .guide-card-header {
+    background: var(--near-black);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .guide-card-header-left { flex: 1; }
+
+  .guide-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid rgba(74,158,166,0.4);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  .guide-card-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .guide-card-header p {
+    font-size: 12px;
+    color: var(--light);
+    line-height: 1.6;
+    max-width: 440px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .download-btn:hover { background: var(--teal-dark); }
+
+  .download-btn svg { width: 14px; height: 14px; }
+
+  /* VIDEO GUIDE SECTION */
+  .video-guide {
+    padding: 32px;
+  }
+
+  .video-guide-intro {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  /* DAY BLOCKS */
+  .day-block {
+    border-left: 2px solid var(--cream-dark);
+    padding-left: 24px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .day-block::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  .day-block.active-day { border-left-color: var(--teal); }
+
+  .day-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--near-black);
+    margin-bottom: 10px;
+  }
+
+  .day-content {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .day-content strong { color: var(--near-black); font-weight: 500; }
+  .day-content em { font-style: italic; }
+
+  /* VIDEO EMBED */
+  .video-wrap {
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--near-black);
+    position: relative;
+    margin-top: 12px;
+  }
+
+  .video-placeholder {
+    aspect-ratio: 9/16;
+    max-height: 420px;
+    background: var(--near-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .video-placeholder-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(74,158,166,0.15);
+    border: 1px solid rgba(74,158,166,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-placeholder-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--teal);
+    margin-left: 3px;
+  }
+
+  .video-placeholder p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  .video-placeholder strong {
+    display: block;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  /* When videos are added, replace placeholder with iframe */
+  .video-wrap iframe {
+    width: 100%;
+    aspect-ratio: 9/16;
+    max-height: 420px;
+    border: none;
+    display: block;
+  }
+
+  .video-caption {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--light);
+    padding: 8px 12px;
+    background: rgba(28,28,26,0.05);
+    border-top: 1px solid rgba(28,28,26,0.08);
+  }
+
+  /* INLINE LAYOUT for day + video side by side on desktop */
+  .day-inner {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .day-inner { grid-template-columns: 1fr; }
+    .video-wrap { max-width: 280px; }
+  }
+
+  /* NOTE BOX */
+  .note-box {
+    background: var(--teal-pale);
+    border: 1px solid rgba(74,158,166,0.25);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: var(--teal-dark);
+    line-height: 1.65;
+    margin: 12px 0;
+  }
+
+  .note-box strong { font-weight: 600; }
+
+  /* OTHER DOWNLOADS GRID */
+  .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .download-card {
+    background: white;
+    border-radius: 5px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 1px 8px rgba(28,28,26,0.05);
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .download-card:hover {
+    box-shadow: 0 4px 20px rgba(28,28,26,0.1);
+    border-color: var(--teal);
+    transform: translateY(-1px);
+  }
+
+  .download-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 4px;
+    background: var(--teal-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .download-card-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.5; }
+
+  .download-card-body {}
+
+  .download-card-tag {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .download-card-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--near-black);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .download-card-desc {
+    font-size: 11px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--near-black);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  footer p {
+    font-size: 11px;
+    color: #444441;
+    letter-spacing: 0.07em;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Hoody <span>Bakes</span></a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Free Resources</div>
+  <h1>Guides, Tools<br>&amp; <em>Video Walkthroughs</em></h1>
+  <p>Everything you need to bake better sourdough — completely free. Download the guides, watch the videos, and get baking.</p>
+</div>
+
+<div class="page">
+
+  <!-- STARTER GUIDE FEATURED -->
+  <div class="section-label">Starter Guide</div>
+
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-header-left">
+        <div class="guide-tag">Free Download + Video Guide</div>
+        <h2>Sourdough Starter Guide<br>Day 1–14</h2>
+        <p>What to do and what to expect — no guesswork. Includes short video clips showing you exactly what each stage looks like in real life.</p>
+      </div>
+      <a href="/Hoody_Sourdough_Starter_Guide.pdf" download class="download-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="video-guide">
+      <p class="video-guide-intro">
+        Follow along day by day with these short video clips. Each one shows you exactly what your starter should look like — so you know you're on track and not second-guessing yourself at 11pm.
+      </p>
+
+      <!-- DAY 1 -->
+      <div class="day-block active-day" id="video-day1">
+        <div class="day-inner">
+          <div>
+            <div class="day-label">Day 1</div>
+            <div class="day-title">The Initial Mix</div>
+            <div class="day-content">
+              Mix <strong>50g wholemeal flour</strong> with <strong>50g water</strong> until it forms a thick paste. Cover loosely and leave at room temperature. You'll see a thick, slightly grainy mixture — and that's exactly right.
+            </div>
+            <div class="note-box">
+              <strong>Temperature tip:</strong> If your house is cold, use tepid water to help things along. If it's warm, cool water is fine.
+            </div>
+          </div>
+          <div>
+            <div class="video-wrap">
+              <!-- REPLACE THIS PLACEHOLDER with YouTube embed when ready -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe> -->
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p><strong>Video coming soon</strong>Day 1 — The initial mix</p>
+              </div>
+              <div class="video-caption">Day 1 · The initial mix</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-block" id="video-day3">
+        <div class="day-inner">
+          <div>
+            <div class="day-label">Day 3</div>
+            <div class="day-title">First Feed</div>
+            <div class="day-content">
+              Discard roughly half so you're left with about <strong>50g starter</strong>. Feed with <strong>50g flour + 50g water</strong> (1:1:1 ratio). Switch to bread or plain flour from here. You'll likely see a sudden increase in bubbles — <em>this doesn't mean it's ready, it's just early bacterial activity.</em>
+            </div>
+          </div>
+          <div>
+            <div class="video-wrap">
+              <!-- REPLACE THIS PLACEHOLDER with YouTube embed when ready -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe> -->
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p><strong>Video coming soon</strong>Day 3 — First feed</p>
+              </div>
+              <div class="video-caption">Day 3 · First feed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 4–6 -->
+      <div class="day-block" id="video-day4">
+        <div class="day-inner">
+          <div>
+            <div class="day-label">Days 4–6</div>
+            <div class="day-title">The Quiet Stage</div>
+            <div class="day-content">
+              Your starter may look quieter, flatter, and less active than before. <strong>This is the stage where most people think they've failed.</strong> <em>You haven't. Keep going.</em> Discard down to about 50g and feed 50g flour + 50g water daily.
+            </div>
+            <div class="note-box">
+              <strong>Don't restart.</strong> What looks like failure is actually your starter finding its balance. Keep feeding consistently and it will come good.
+            </div>
+          </div>
+          <div>
+            <div class="video-wrap">
+              <!-- REPLACE THIS PLACEHOLDER with YouTube embed when ready -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe> -->
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p><strong>Video coming soon</strong>Days 4–6 — You haven't failed!</p>
+              </div>
+              <div class="video-caption">Days 4–6 · The quiet stage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEEDING TECHNIQUE -->
+      <div class="day-block" id="video-feeding">
+        <div class="day-inner">
+          <div>
+            <div class="day-label">Days 7–10</div>
+            <div class="day-title">Feeding on the Scales</div>
+            <div class="day-content">
+              Continue the same daily feeding routine. You'll start to see more consistent bubbles and a stronger rise. The texture will become lighter and more aerated. Use your scales every time for accuracy — eyeballing ratios is how things go wrong.
+            </div>
+          </div>
+          <div>
+            <div class="video-wrap">
+              <!-- REPLACE THIS PLACEHOLDER with YouTube embed when ready -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe> -->
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p><strong>Video coming soon</strong>Feeding technique on scales</p>
+              </div>
+              <div class="video-caption">Days 7–10 · Feeding on the scales</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end video-guide -->
+  </div><!-- end guide-card -->
+
+  <!-- OTHER DOWNLOADS -->
+  <div class="section-label">More Free Downloads</div>
+
+  <div class="downloads-grid">
+    <a href="/Hoody_Sourdough_Starter_Feeding_Ratios.pdf" download class="download-card">
+      <div class="download-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="download-card-body">
+        <div class="download-card-tag">Free PDF</div>
+        <div class="download-card-title">Starter Feeding Ratios</div>
+        <div class="download-card-desc">1:5:5 and 1:10:10 ratios explained simply — for a happy, active starter.</div>
+      </div>
+    </a>
+
+    <a href="/Temperature_Conversion_guide.pdf" download class="download-card">
+      <div class="download-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="download-card-body">
+        <div class="download-card-tag">Free PDF</div>
+        <div class="download-card-title">Oven Temperature Conversion Guide</div>
+        <div class="download-card-desc">Convert oven and dough temperatures without second-guessing.</div>
+      </div>
+    </a>
+
+    <a href="https://hydrationcalculator.hoodyssourdoughkitchen.com.au" target="_blank" class="download-card">
+      <div class="download-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg>
+      </div>
+      <div class="download-card-body">
+        <div class="download-card-tag">Free Tool</div>
+        <div class="download-card-title">Hydration Calculator</div>
+        <div class="download-card-desc">Work out your exact hydration percentage including the flour and water in your starter.</div>
+      </div>
+    </a>
+  </div>
+
+</div><!-- end page -->
+
+<footer>
+  <div class="footer-logo">Hoody <span>Bakes</span></div>
+  <p>&copy; 2026 Hoody's Sourdough Kitchen · All rights reserved</p>
+</footer>
+
+</body>
+</html>
