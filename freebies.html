@@ -630,7 +630,49 @@
         </div>
       </div>
 
+
+      <!-- SIGNS IT'S READY -->
+      <div class="day-block active-day" id="signs-ready">
+        <div class="day-label">Days 10–14</div>
+        <div class="day-title">Signs Your Starter is Ready</div>
+        <div class="day-content">
+          Keep feeding consistently and watch for these signs. Your starter is ready to bake with when it does <strong>all four of these things reliably:</strong>
+        </div>
+        <div class="note-box" style="margin-bottom:12px;">
+          <strong>The most important one:</strong> It should be doubling in size consistently within 4 to 6 hours of feeding, and doing it predictably every single time — not just occasionally.
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;"></div>
+            <div style="font-size:13px;color:var(--mid);line-height:1.7;">It doubles in size within 4 to 6 hours of feeding</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;"></div>
+            <div style="font-size:13px;color:var(--mid);line-height:1.7;">Bubbles are visible throughout — not just on the surface</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;"></div>
+            <div style="font-size:13px;color:var(--mid);line-height:1.7;">It rises and falls on a consistent, predictable schedule</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;"></div>
+            <div style="font-size:13px;color:var(--mid);line-height:1.7;">It smells slightly tangy — not foul or unpleasant</div>
+          </div>
+        </div>
+        <div class="note-box">
+          <strong>Your starter didn't die.</strong> You just didn't wait long enough.
+        </div>
+        <div style="margin-top:16px;">
+          <a href="/Hoody_Sourdough_Starter_Guide.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;text-decoration:none;padding:12px 22px;border-radius:3px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download the full guide as a PDF
+          </a>
+          <p style="font-size:11px;color:var(--light);margin-top:8px;">Includes troubleshooting, what to do when it's ready, and all the detail from this page in one handy download.</p>
+        </div>
+      </div>
+
     </div><!-- end video-guide -->
+
   </div><!-- end guide-card -->
 
   <!-- OTHER DOWNLOADS -->
@@ -678,5 +720,46 @@
   <p>&copy; 2026 Hoody's Sourdough Kitchen · All rights reserved</p>
 </footer>
 
+
+<script>
+  // VIDEO PLAY TRACKING
+  // YouTube iframes need the API enabled to track plays
+  // Add ?enablejsapi=1 to all YouTube embed URLs
+  document.querySelectorAll('iframe[src*="youtube.com/embed"]').forEach(function(iframe) {
+    iframe.src = iframe.src + '?enablejsapi=1';
+  });
+
+  // Listen for YouTube player state changes via postMessage
+  window.addEventListener('message', function(event) {
+    if (event.origin !== 'https://www.youtube.com') return;
+    try {
+      var data = JSON.parse(event.data);
+      if (data.event === 'onStateChange' && data.info === 1) {
+        // State 1 = playing
+        var iframes = document.querySelectorAll('iframe[src*="youtube.com"]');
+        iframes.forEach(function(iframe) {
+          if (iframe.contentWindow === event.source) {
+            var caption = iframe.closest('.video-wrap') && iframe.closest('.video-wrap').querySelector('.video-caption');
+            var label = caption ? caption.textContent.trim() : 'Unknown video';
+            gtag('event', 'video_play', {
+              event_category: 'Starter Guide Videos',
+              event_label: label
+            });
+          }
+        });
+      }
+    } catch(e) {}
+  });
+
+  // PDF DOWNLOAD TRACKING
+  document.querySelectorAll('a[download], a[href$=".pdf"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      gtag('event', 'file_download', {
+        event_category: 'Freebies',
+        event_label: this.getAttribute('href')
+      });
+    });
+  });
+</script>
 </body>
 </html>
