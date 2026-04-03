@@ -14,6 +14,27 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-9CL9QCDL4S');
+
+    // PWA TRACKING: fire an event when app is launched from home screen
+    window.addEventListener('DOMContentLoaded', function() {
+      var isStandalone =
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
+      if (isStandalone) {
+        gtag('event', 'pwa_launch', {
+          event_category: 'PWA',
+          event_label: 'Launched from home screen'
+        });
+      }
+    });
+
+    // PWA INSTALL TRACKING
+    window.addEventListener('appinstalled', function() {
+      gtag('event', 'pwa_install', {
+        event_category: 'PWA',
+        event_label: 'Added to home screen'
+      });
+    });
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
